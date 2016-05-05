@@ -12,7 +12,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Border BorderBrush="#FF9B64EC" BorderThickness="0 0 0 2" Height="50" ToolTip="航向">
-            <Grid Name="Grid_YawStaff" Background="#FF4A6989">
+            <Grid Name="Grid_YawStaff" Background="#FF617A99">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition/>
@@ -20,11 +20,11 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Name="TextBlock_YawStaff_Left" Text="W" Grid.Column="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <local:BorderTextLabel x:Name="TextBlock_YawStaff_Left" Text="W" FontWeight="ExtraBold" Grid.Column="0" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
                 <Canvas Name="Canvas_YawStaff_Left"  Grid.Column="1" Background="#FF808BF9"/>
-                <TextBlock Name="TextBlock_YawStaff_Middle" Text="N" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <local:BorderTextLabel x:Name="TextBlock_YawStaff_Middle" Text="N" FontWeight="ExtraBold" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
                 <Canvas Name="Canvas_YawStaff_Right"  Grid.Column="3" Background="#FF808BF9"/>
-                <TextBlock Name="TextBlock_YawStaff_Right" Text="E" Grid.Column="4" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <local:BorderTextLabel x:Name="TextBlock_YawStaff_Right" Text="E" FontWeight="ExtraBold" Grid.Column="4" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
                 <Canvas Name="Canvas_YawStaff_Value">
                     <Line Y1="0" Y2="36" Stroke="Red" StrokeThickness="2" Opacity="0.7" Canvas.Left="15"/>
                     <TextBlock Name="Text_YawStaff_Value" TextAlignment="Center" Background="Red" Foreground="White" Canvas.Top="34" FontSize="12" Width="30" Canvas.Left="0" Text="0" ToolTip="0"/>
@@ -34,10 +34,10 @@
         <Grid Name="Grid_Virwport" Grid.Row="1">
             <Grid.Background>
                 <LinearGradientBrush MappingMode="Absolute">
-                    <GradientStop Color="#FF1C1CEA"/>
-                    <GradientStop Color="#FF7D7DF9" Offset="0.5"/>
-                    <GradientStop Color="#FF9AAA55" Offset="0.5"/>
-                    <GradientStop Color="#FF6B8015" Offset="1"/>
+                    <GradientStop Color="#FF7D7DF9"/>
+                    <GradientStop Color="#FFAAD5E7" Offset="0.5"/>
+                    <GradientStop Color="#FF9AB724" Offset="0.5"/>
+                    <GradientStop Color="#FF6F8516" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>

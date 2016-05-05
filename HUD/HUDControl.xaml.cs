@@ -102,14 +102,17 @@ namespace HUD
                 left_tl.Stroke = Brushes.White;
                 left_tl.StrokeThickness = 1;
                 yawstaffCanvas.Children.Add(left_tl);
-                TextBlock ticktext = new TextBlock();
+                var ticktext = new BorderTextLabel();
+                ticktext.FontWeight = FontWeights.ExtraBold;
+                ticktext.Stroke = Brushes.Gray;
+                ticktext.FontSize = 16;
                 if (isrightcanvas)
                     ticktext.Text = (d * 90 / tickcount).ToString();
                 else
                     ticktext.Text = (90 - d * 90 / tickcount).ToString();
                 ticktext.Foreground = Brushes.White;
                 Canvas.SetTop(ticktext, 2);
-                Canvas.SetLeft(ticktext, left_tl.X1 - 6);
+                Canvas.SetLeft(ticktext, left_tl.X1 - 10);
                 yawstaffCanvas.Children.Add(ticktext);
             }
         }
@@ -166,16 +169,17 @@ namespace HUD
             Canvas.SetTop(line, -cycleR);
             line.RenderTransform = new RotateTransform(angle, 0, cycleR);
             Canvas_ViewPortMiddle.Children.Add(line);
-            TextBlock textblock = new TextBlock();
+            var textblock = new BorderTextLabel();
             textblock.Width = 20;
-            textblock.TextAlignment = TextAlignment.Center;
+            textblock.Stroke = Brushes.DimGray;
+            textblock.HorizontalContentAlignment = HorizontalAlignment.Center;
             textblock.Text = Math.Abs(angle).ToString("##0");
             textblock.Foreground = Brushes.White;
-            textblock.FontSize = 10;
+            textblock.FontSize = 14;
             textblock.FontWeight = FontWeights.Bold;
-            Canvas.SetTop(textblock, -cycleR - 16);
-            Canvas.SetLeft(textblock, -textblock.Width / 2);
-            textblock.RenderTransform = new RotateTransform(angle, textblock.Width / 2, cycleR + 16);
+            Canvas.SetTop(textblock, -cycleR - 20);
+            Canvas.SetLeft(textblock, -7 * textblock.Text.Count() / 2);
+            textblock.RenderTransform = new RotateTransform(angle, 7 * textblock.Text.Count() / 2, cycleR + 20);
             Canvas_ViewPortMiddle.Children.Add(textblock);
         }
         private void DrawPitchTick(double pitch, double offset)
@@ -190,15 +194,16 @@ namespace HUD
             Canvas.SetLeft(line, -20);
             Canvas.SetTop(line, offset);
             Canvas_ViewPortMiddle.Children.Add(line);
-            TextBlock textblock = new TextBlock();
-            textblock.Width = 30;
-            textblock.TextAlignment = TextAlignment.Center;
+            var textblock = new BorderTextLabel();
+            textblock.Width = 22;
+            textblock.Stroke = Brushes.DimGray;
+            textblock.HorizontalContentAlignment = HorizontalAlignment.Center;
             textblock.Text = pitch.ToString("##0");
             textblock.Foreground = Brushes.White;
-            textblock.FontSize = 12;
+            textblock.FontSize = 16;
             textblock.FontWeight = FontWeights.Bold;
             Canvas.SetTop(textblock, offset - 8);
-            Canvas.SetLeft(textblock, -textblock.Width - 24);
+            Canvas.SetLeft(textblock, -textblock.Width - 26);
             Canvas_ViewPortMiddle.Children.Add(textblock);
         }
         private void DrawShortPitchTick(double pitch, double offset)
@@ -276,7 +281,7 @@ namespace HUD
             {
                 DrawPitchTick(pitch + i * pitchspace, -cycleR * i / pitchcount);
                 for (int j = 1; j < pitchspace; j++)
-                    DrawShortPitchTick(pitch + (i-1) * pitchspace + j, -cycleR * ((i-1) + (float)j / pitchspace) / pitchcount);
+                    DrawShortPitchTick(pitch + (i - 1) * pitchspace + j, -cycleR * ((i - 1) + (float)j / pitchspace) / pitchcount);
                 DrawPitchTick(pitch - i * pitchspace, cycleR * i / pitchcount);
                 for (int j = 1; j < pitchspace; j++)
                     DrawShortPitchTick(pitch + (i - 1) * pitchspace + j, cycleR * ((i - 1) + (float)j / pitchspace) / pitchcount);
