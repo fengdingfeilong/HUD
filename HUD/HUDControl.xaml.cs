@@ -105,7 +105,7 @@ namespace HUD
                 var ticktext = new BorderTextLabel();
                 ticktext.FontWeight = FontWeights.ExtraBold;
                 ticktext.Stroke = Brushes.Gray;
-                ticktext.FontSize = 16;
+                ticktext.FontSize = 14;
                 if (isrightcanvas)
                     ticktext.Text = (d * 90 / tickcount).ToString();
                 else
