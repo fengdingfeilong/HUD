@@ -31,7 +31,7 @@ namespace HUD
             set { SetValue(StrokeThicknessProperty, value); }
         }
         public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register("StrokeThickness", typeof(double), typeof(BorderTextLabel), new FrameworkPropertyMetadata((double)1));
-        
+
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
@@ -40,7 +40,12 @@ namespace HUD
                 this.Width = formattedText.Width;
             if (double.IsNaN(this.Height))
                 this.Height = formattedText.Height;
-            var textgeometry = formattedText.BuildGeometry(new Point(0, 0));
+            Point startp = new Point(0, 0);
+            if (this.HorizontalContentAlignment == HorizontalAlignment.Right) startp.X = this.Width - formattedText.Width;
+            if (this.HorizontalContentAlignment == HorizontalAlignment.Center) startp.X = (this.Width - formattedText.Width) / 2;
+            if (this.VerticalContentAlignment == VerticalAlignment.Bottom) startp.X = this.Height - formattedText.Height;
+            if (this.VerticalContentAlignment == VerticalAlignment.Center) startp.X = (this.Height - formattedText.Height) / 2;
+            var textgeometry = formattedText.BuildGeometry(startp);
             drawingContext.DrawGeometry(this.Foreground, new Pen(Stroke, StrokeThickness), textgeometry);
         }
 
