@@ -178,8 +178,8 @@ namespace HUD
             textblock.FontSize = 14;
             textblock.FontWeight = FontWeights.Bold;
             Canvas.SetTop(textblock, -cycleR - 20);
-            Canvas.SetLeft(textblock, -7 * textblock.Text.Count() / 2);
-            textblock.RenderTransform = new RotateTransform(angle, 7 * textblock.Text.Count() / 2, cycleR + 20);
+            Canvas.SetLeft(textblock, -textblock.Width / 2);
+            textblock.RenderTransform = new RotateTransform(angle, textblock.Width / 2, cycleR + 20);
             Canvas_ViewPortMiddle.Children.Add(textblock);
         }
         private void DrawPitchTick(double pitch, double offset)
@@ -202,7 +202,7 @@ namespace HUD
             textblock.Foreground = Brushes.White;
             textblock.FontSize = 16;
             textblock.FontWeight = FontWeights.Bold;
-            Canvas.SetTop(textblock, offset - 8);
+            Canvas.SetTop(textblock, offset - 11);
             Canvas.SetLeft(textblock, -textblock.Width - 26);
             Canvas_ViewPortMiddle.Children.Add(textblock);
         }
