@@ -11,26 +11,30 @@ namespace HUD
 {
     public class BorderTextLabel : System.Windows.Controls.Label
     {
+        private static void Redraw(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((BorderTextLabel)d).InvalidateVisual();
+        }
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
         }
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("TextProperty", typeof(string), typeof(BorderTextLabel), new FrameworkPropertyMetadata(string.Empty));
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("TextProperty", typeof(string), typeof(BorderTextLabel), new FrameworkPropertyMetadata(string.Empty,Redraw));
 
         public Brush Stroke
         {
             get { return (Brush)GetValue(StrokeProperty); }
             set { SetValue(StrokeProperty, value); }
         }
-        public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register("Stroke", typeof(Brush), typeof(BorderTextLabel), new FrameworkPropertyMetadata(Brushes.Black));
+        public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register("Stroke", typeof(Brush), typeof(BorderTextLabel), new FrameworkPropertyMetadata(Brushes.Black, Redraw));
 
         public double StrokeThickness
         {
             get { return (double)GetValue(StrokeThicknessProperty); }
             set { SetValue(StrokeThicknessProperty, value); }
         }
-        public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register("StrokeThickness", typeof(double), typeof(BorderTextLabel), new FrameworkPropertyMetadata((double)1));
+        public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register("StrokeThickness", typeof(double), typeof(BorderTextLabel), new FrameworkPropertyMetadata((double)1, Redraw));
 
         protected override void OnRender(DrawingContext drawingContext)
         {
