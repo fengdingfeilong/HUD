@@ -6,14 +6,15 @@
              xmlns:local="clr-namespace:HUD"
              mc:Ignorable="d"
              d:DesignHeight="370" d:DesignWidth="400">
-    <Viewbox>
-        <Grid Name="Grid_Root" Width="400" Height="370">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Border BorderBrush="#FF9B64EC" BorderThickness="0 0 0 2" Height="50" ToolTip="航向">
-                <Grid Name="Grid_YawStaff" Background="#FF617A99">
+
+    <Grid Name="Grid_Root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="#FF9B64EC" BorderThickness="0 0 0 2" Background="#FF617A99" ToolTip="航向">
+            <Viewbox>
+                <Grid Name="Grid_YawStaff" Width="400" Height="50">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
                         <ColumnDefinition/>
@@ -31,32 +32,36 @@
                         <TextBlock Name="Text_YawStaff_Value" TextAlignment="Center" Background="Red" Foreground="White" Canvas.Top="34" FontSize="12" Width="30" Canvas.Left="0" Text="0" ToolTip="0"/>
                     </Canvas>
                 </Grid>
-            </Border>
-            <Grid Name="Grid_Virwport" Grid.Row="1">
-                <Grid.Background>
-                    <LinearGradientBrush MappingMode="Absolute">
-                        <GradientStop Color="#FF7D7DF9"/>
-                        <GradientStop Color="#FFAAD5E7" Offset="0.5"/>
-                        <GradientStop Color="#FF9AB724" Offset="0.5"/>
-                        <GradientStop Color="#FF6F8516" Offset="1"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Canvas Name="Canvas_ViewPortLeft"></Canvas>
-                <Canvas Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Canvas Name="Canvas_RollCursor" Width="30" Height="50">
-                        <TextBlock Name="Text_RollStaff_Value" Background="Red" Width="30" Text="180" TextAlignment="Center" Foreground="White" FontSize="12"/>
-                        <Line Y1="16" Y2="26" Stroke="Red" StrokeThickness="2" Opacity="0.7" Canvas.Left="15"/>
+            </Viewbox>
+        </Border>
+        <Grid Name="Grid_Virwport" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush MappingMode="Absolute">
+                    <GradientStop Color="#FF7D7DF9"/>
+                    <GradientStop Color="#FFAAD5E7" Offset="0.5"/>
+                    <GradientStop Color="#FF9AB724" Offset="0.5"/>
+                    <GradientStop Color="#FF6F8516" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Viewbox>
+                <Grid Width="400" Height="320">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas Name="Canvas_ViewPortLeft" HorizontalAlignment="Left" VerticalAlignment="Center"></Canvas>
+                    <Canvas Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Canvas Name="Canvas_RollCursor" Width="30" Height="50">
+                            <TextBlock Name="Text_RollStaff_Value" Background="Red" Width="30" Text="180" TextAlignment="Center" Foreground="White" FontSize="12"/>
+                            <Line Y1="16" Y2="26" Stroke="Red" StrokeThickness="2" Opacity="0.7" Canvas.Left="15"/>
+                        </Canvas>
+                        <Canvas Name="Canvas_ViewPortMiddle" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        </Canvas>
                     </Canvas>
-                    <Canvas Name="Canvas_ViewPortMiddle" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    </Canvas>
-                </Canvas>
-                <Canvas Name="Canvas_ViewPortRight" Grid.Column="2"></Canvas>
-            </Grid>
+                    <Canvas Name="Canvas_ViewPortRight" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"></Canvas>
+                </Grid>
+            </Viewbox>
         </Grid>
-    </Viewbox>
+    </Grid>
 </UserControl>
