@@ -6,11 +6,10 @@
              xmlns:local="clr-namespace:HUD"
              mc:Ignorable="d"
              d:DesignHeight="370" d:DesignWidth="400">
-
     <Grid Name="Grid_Root">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="320*"/>
         </Grid.RowDefinitions>
         <Border BorderBrush="#FF9B64EC" BorderThickness="0 0 0 2" Background="#FF617A99" ToolTip="航向">
             <Viewbox>
@@ -44,7 +43,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Viewbox>
-                <Grid Width="400" Height="320">
+                <Grid Name="Grid_Center"  Width="400" Height="320">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
