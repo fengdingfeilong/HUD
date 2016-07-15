@@ -341,9 +341,9 @@ namespace HUD
             var bkbrush = (LinearGradientBrush)Grid_Virwport.Background;
             double offset = 0.5;
             double pitch = PitchAngle * Math.PI / 180;
-            if (pitch > Math.PI / 4) pitch = Math.PI / 4;
-            if (pitch < -Math.PI / 4) pitch = -Math.PI / 4;
-            offset = 0.5 * (1 + Math.Tan(pitch));
+            if (pitch > Math.PI / 3) pitch = Math.PI / 3;//设置俯仰视觉为120度
+            if (pitch < -Math.PI / 3) pitch = -Math.PI / 3;
+            offset = 0.5 * (1 + Math.Tan(pitch) / Math.Tan(Math.PI / 3));
             bkbrush.GradientStops[1].Offset = offset;
             bkbrush.GradientStops[2].Offset = offset;
 

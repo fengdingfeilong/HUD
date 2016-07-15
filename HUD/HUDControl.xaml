@@ -12,7 +12,7 @@
             <RowDefinition Height="320*"/>
         </Grid.RowDefinitions>
         <Border BorderBrush="#FF9B64EC" BorderThickness="0 0 0 2" Background="#FF617A99" ToolTip="航向">
-            <Viewbox>
+            <Viewbox VerticalAlignment="Bottom">
                 <Grid Name="Grid_YawStaff" Width="400" Height="50">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
