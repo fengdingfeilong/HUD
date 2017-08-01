@@ -20,7 +20,7 @@ namespace HUD
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
         }
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("TextProperty", typeof(string), typeof(BorderTextLabel), new FrameworkPropertyMetadata(string.Empty,Redraw));
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(BorderTextLabel), new FrameworkPropertyMetadata(string.Empty,Redraw));
 
         public Brush Stroke
         {
